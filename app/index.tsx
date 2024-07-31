@@ -10,7 +10,10 @@ export default function Index() {
      
     }}
     >
-      <Text>imalmi hi</Text>
+      <Text style={{
+        fontSize:30,
+        fontFamily:'outfit-bold'
+      }}>imalmi hi</Text>
     </View>
   );  
  
