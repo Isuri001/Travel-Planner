@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, Text, TouchableOpacity, ToastAndroid } from "react-native";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { Colors } from "../../constants/Colors";
 import { Calendar } from "react-native-calendars";
 import dayjs from "dayjs";
@@ -12,6 +12,7 @@ export default function SelectDate() {
   const [endDate, setEndDate] = useState(null);
   const [selectedDates, setSelectedDates] = useState({});
   const { tripData, setTripData } = useContext(CreateTripContext);
+  const router = useRouter();
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
@@ -40,6 +41,8 @@ export default function SelectDate() {
       endDate: endDate,
       totalNoOfDays: totalNoOfDays + 1,
     });
+
+    router.push("/create-trip/select-budget");
   };
 
   const onDayPress = (day) => {
