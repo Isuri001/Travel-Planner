@@ -1,7 +1,17 @@
 import { View, Text, FlatList, Image, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
+import { GetPhotoRef } from "../../services/GooglePlaceApi";
 
 export default function HotelList({ hotelList }) {
+  useEffect(() => {
+    GetGooglePhotoRef();
+  }, []);
+
+  const GetGooglePhotoRef = async () => {
+    const result = await GetPhotoRef("Canada");
+    console.log(result);
+  };
+
   return (
     <View
       style={{
